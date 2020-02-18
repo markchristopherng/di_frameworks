@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        applicationId "au.com.auspost.android.feature.toothpick"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    //Toothpick
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:$toothpick_version"
+    implementation "com.github.stephanenicolas.toothpick:smoothie:$toothpick_version"
+    implementation "com.github.stephanenicolas.toothpick:smoothie-lifecycle-ktp:$toothpick_version"
+    implementation "com.github.stephanenicolas.toothpick:ktp:$toothpick_version"
+    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:$toothpick_version"
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_kotlin_version"
+    testImplementation "com.github.stephanenicolas.toothpick:toothpick-testing-junit4:$toothpick_version"
+    kaptTest "com.github.stephanenicolas.toothpick:toothpick-compiler:$toothpick_version"
+
+    testImplementation "androidx.test:core:$androidx_test_core_version"
+    testImplementation "androidx.test.ext:junit:$androidx_test_ext_version"
+    testImplementation "org.robolectric:robolectric:$roboelectric_version"
+
+}
