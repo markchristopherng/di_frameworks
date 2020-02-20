@@ -1,9 +1,18 @@
 package au.com.auspost.android.feature.dagger
 
 import javax.inject.Inject
+import javax.inject.Singleton
 
-data class MessageData(val welcomeMessage: String = "welcome to Dagger")
+class MessageData {
 
+    var welcomeMessage: String = ""
+
+    @Inject constructor(welcomeMessage: String) {
+        this.welcomeMessage = welcomeMessage
+    }
+}
+
+@Singleton
 class GreetingServiceImpl @Inject constructor(private val messageData: MessageData, private val timeService: TimeService) :
     GreetingService {
 

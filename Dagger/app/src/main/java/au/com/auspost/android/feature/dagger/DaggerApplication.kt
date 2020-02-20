@@ -5,6 +5,7 @@ import android.app.Application
 class DaggerApplication : Application() {
 
     val appComponent: AppComponent by lazy {
-        DaggerAppComponent.builder().daggerModule(DaggerModule()).build()
+
+        DaggerAppComponent.factory().create("welcome to Dagger")
     }
 }

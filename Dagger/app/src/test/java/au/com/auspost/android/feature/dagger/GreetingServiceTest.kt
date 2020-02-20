@@ -19,7 +19,7 @@ class GreetingServiceTest {
 
     @Before
     fun setup() {
-        greetingService = GreetingServiceImpl(MessageData(), timeService)
+        greetingService = GreetingServiceImpl(MessageData("welcome to Dagger"), timeService)
     }
 
     @Test

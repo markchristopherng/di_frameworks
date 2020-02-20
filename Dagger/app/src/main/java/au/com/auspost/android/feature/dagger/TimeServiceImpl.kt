@@ -1,8 +1,11 @@
 package au.com.auspost.android.feature.dagger
 
 import java.util.Calendar
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class TimeServiceImpl : TimeService {
+@Singleton
+class TimeServiceImpl @Inject constructor() : TimeService {
 
     override fun getHourOfDay(): Int {
         val cal = Calendar.getInstance()

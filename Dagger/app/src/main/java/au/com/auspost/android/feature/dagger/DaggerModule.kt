@@ -1,26 +1,14 @@
 package au.com.auspost.android.feature.dagger
 
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
-import javax.inject.Singleton
 
 @Module
-internal class DaggerModule {
+abstract class DaggerModule {
 
-    @Provides
-    @Singleton
-    fun provideMesageData(): MessageData {
-        return MessageData()
-    }
+    @Binds
+    abstract fun provideTimeService(impl: TimeServiceImpl): TimeService
 
-    @Provides
-    @Singleton
-    fun provideTimeService(): TimeService {
-        return TimeServiceImpl()
-    }
-
-    @Provides
-    fun provideGreetingSersvice(): GreetingService {
-        return GreetingServiceImpl(provideMesageData(), provideTimeService())
-    }
+    @Binds
+    abstract fun provideGreetingSersvice(impl: GreetingServiceImpl): GreetingService
 }
