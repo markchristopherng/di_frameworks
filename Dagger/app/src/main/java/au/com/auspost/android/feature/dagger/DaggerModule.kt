@@ -4,11 +4,11 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-abstract class DaggerModule {
+interface DaggerModule {
 
     @Binds
-    abstract fun provideTimeService(impl: TimeServiceImpl): TimeService
+    fun provideTimeService(impl: TimeServiceImpl): TimeService
 
     @Binds
-    abstract fun provideGreetingSersvice(impl: GreetingServiceImpl): GreetingService
+    fun provideGreetingSersvice(impl: GreetingServiceImpl): GreetingService
 }
