@@ -8,8 +8,6 @@ import dagger.BindsInstance
 @Component(modules = [DaggerModule::class])
 interface AppComponent {
 
-    fun getMessageData(): MessageData
-
     fun inject(mainActivity: MainActivity)
 
     @Component.Factory
